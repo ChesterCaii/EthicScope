@@ -1,82 +1,70 @@
-# 🌿 EthicScope
+# EthicScope
 
-Welcome to **EthicScope**, your go-to web application for discovering the ethical and environmental impact of your favorite products. Whether you're scanning barcodes or searching by name, EthicScope provides you with comprehensive insights into a product's ethical sourcing, environmental footprint, and more.
+EthicScope is a web application designed to help you make informed choices by revealing the ethical and environmental impact of everyday products. Scan a barcode or search by name to access transparent, research-backed insights into sourcing, labor practices, environmental footprint, and more.
 
----
+## Table of Contents
+- [Features](#features)
+- [Demo](#demo)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 🌟 Features
+## Features
 
-- **🔍 Product Scanning**: Effortlessly scan barcodes or search for products by name.
-- **📊 Ethical Impact Scores**: Evaluate scores based on labor practices, fair wages, and working conditions.
-- **🌍 Environmental Impact Scores**: Understand the ecological footprint, including carbon emissions and deforestation.
-- **🗺️ Geographic Impact Analysis**: Discover the regional impact of products.
-- **📚 Data Sources**: Trusted information from organizations like the International Labour Organization and Greenpeace.
+- **Product Scanning**: Instantly scan barcodes or search for products by name.
+- **Ethical Impact Scores**: See how products rate on labor practices, fair wages, and working conditions.
+- **Environmental Impact Scores**: Assess the ecological footprint, including carbon emissions and deforestation risk.
+- **Geographic Impact Analysis**: Explore how products affect different regions.
+- **Trusted Data Sources**: Insights are powered by organizations such as the International Labour Organization and Greenpeace.
 
----
+## Demo
 
-## 🎥 Demo Video
+Curious about EthicScope in action? [Watch our demo video](https://youtu.be/VojOdpquwYU).
 
-Curious to see EthicScope in action? Watch our [demo video](https://youtu.be/VojOdpquwYU)!
-
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Ensure you have [Node.js](https://nodejs.org/) installed.
+- Node.js (latest LTS version recommended)
 
 ### Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/ChesterCaii/ethicscopev1.git
-   ```
-2. **Navigate to the project directory**:
-   ```bash
-   cd ethicscopev1
-   ```
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-4. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
+```bash
+git clone https://github.com/ChesterCaii/ethicscopev1.git
+cd ethicscopev1
+npm install
+npm run dev
+```
 
----
+## Usage
 
-## 🌐 Usage
-
-- Open your browser and go to `http://localhost:3000` to start using EthicScope.
+- Open your browser and navigate to `http://localhost:3000`.
 - Scan a product or search by name to view detailed impact scores and analysis.
 
----
+## Contributing
 
-## 🤝 Contribution
+We welcome contributions from the community! To get started:
 
-We welcome contributions! Follow these steps to contribute:
-
-1. **Fork the repository**.
-2. **Create a new branch**:
+1. **Fork this repository**.
+2. **Create a new branch for your feature or fix**:
    ```bash
    git checkout -b feature/YourFeatureName
    ```
-3. **Make your changes and commit them**:
+3. **Commit your changes**:
    ```bash
-   git commit -m 'Add some feature'
+   git commit -m "Describe your changes"
    ```
-4. **Push to the branch**:
+4. **Push to your branch**:
    ```bash
    git push origin feature/YourFeatureName
    ```
-5. **Open a pull request**.
+5. **Open a pull request** describing your changes.
 
----
-
-## 📜 License
+## License
 
 This project is licensed under the MIT License.
 
 ---
+
+EthicScope is committed to transparency and empowering responsible consumer choices. If you have questions or feedback, please open an issue or reach out via GitHub.
