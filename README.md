@@ -14,6 +14,12 @@ Welcome to **EthicScope**, your go-to web application for discovering the ethica
 
 ---
 
+## 🎥 Demo Video
+
+Curious to see EthicScope in action? Watch our [demo video](https://youtu.be/VojOdpquwYU)!
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -45,12 +51,6 @@ Ensure you have [Node.js](https://nodejs.org/) installed.
 
 - Open your browser and go to `http://localhost:3000` to start using EthicScope.
 - Scan a product or search by name to view detailed impact scores and analysis.
-
----
-
-## 🎥 Demo Video
-
-Curious to see EthicScope in action? Watch our [demo video](https://youtu.be/VojOdpquwYU)!
 
 ---
 
