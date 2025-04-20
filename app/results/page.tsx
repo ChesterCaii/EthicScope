@@ -88,7 +88,7 @@ export default function ResultsPage() {
           className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5 }}
         >
           <div>
             <h2 className="text-3xl font-extrabold text-green-600 tracking-tight mr-3">Buldak Ramen Evaluation</h2>
@@ -105,7 +105,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-orange-50">
               <CardHeader className="pb-2 pt-6 px-6 relative">
@@ -154,7 +154,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5 }}
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-green-50">
               <CardHeader className="pb-2 pt-6 px-6 relative">
@@ -197,7 +197,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="md:col-span-2 lg:col-span-1"
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-blue-50">
