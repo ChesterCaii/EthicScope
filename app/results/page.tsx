@@ -45,7 +45,7 @@ export default function ResultsPage() {
     // Fetch data from Cerebras API
     axios.get<ApiResponse>('https://api.cerebras.com/endpoint', {
       headers: {
-        'Authorization': `Bearer csk-kpnd5w6whcejrkd6fvjjx4xyw9ndtwpfnyk8twcp5t2fynt4`
+        'Authorization': `Bearer YOUR_API_KEY` // Replace with actual key in a secure way
       }
     })
     .then(response => {
@@ -88,15 +88,10 @@ export default function ResultsPage() {
           className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div>
-            <div className="flex items-center mb-2">
-              <h2 className="text-3xl font-extrabold text-green-600 tracking-tight mr-3">Red Bull Energy Drink</h2>
-              <div className="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded-full">
-                Scanned Today
-              </div>
-            </div>
+            <h2 className="text-3xl font-extrabold text-green-600 tracking-tight mr-3">Buldak Ramen Evaluation</h2>
             <p className="text-gray-500">Analysis completed on April 19, 2025</p>
           </div>
           <Button className="mt-4 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2">
@@ -110,7 +105,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-orange-50">
               <CardHeader className="pb-2 pt-6 px-6 relative">
@@ -120,17 +115,16 @@ export default function ResultsPage() {
                 </div>
                 <div className="flex items-center">
                   <CardTitle className="text-2xl font-bold text-orange-600">Ethical Impact Score</CardTitle>
-                  {/* Chick head icon */}
                   <div className="ml-2 w-6 h-6 bg-yellow-300 rounded-full relative">
                     <div className="absolute top-1.5 left-1 w-1.5 h-1.5 bg-black rounded-full"></div>
                     <div className="absolute top-3 left-2.5 w-3 h-1.5 bg-orange-500 rounded-sm transform rotate-12"></div>
                   </div>
                 </div>
-                <CardDescription className="text-orange-700 mt-1">Measuring social responsibility</CardDescription>
+                <CardDescription className="text-orange-700 mt-1">Buldak Ramen has a moderate ethical impact, with concerns about labor practices and fair wages.</CardDescription>
               </CardHeader>
               <CardContent className="px-6 pb-6 flex flex-col items-center">
                 <div className="w-full flex justify-center py-4">
-                  <EthicalScoreGauge score={data ? data.ethicalScore : 65} maxScore={100} />
+                  <EthicalScoreGauge score={45} maxScore={100} />
                 </div>
                 <div className="w-full mt-4">
                   <p className="text-gray-700 font-bold mb-3 flex items-center">
@@ -140,15 +134,15 @@ export default function ResultsPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Factory className="h-5 w-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.keyFactors[0] : 'Sustainable sourcing'}</span>
+                      <span className="text-gray-700">Child labor concerns</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Heart className="h-5 w-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.keyFactors[1] : 'Community support initiatives'}</span>
+                      <span className="text-gray-700">Lack of fair wages</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Leaf className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.keyFactors[2] : 'Recycling programs'}</span>
+                      <span className="text-gray-700">Unsafe working conditions</span>
                     </li>
                   </ul>
                 </div>
@@ -160,7 +154,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-green-50">
               <CardHeader className="pb-2 pt-6 px-6 relative">
@@ -169,11 +163,11 @@ export default function ResultsPage() {
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-green-300 rounded-full"></div>
                 </div>
                 <CardTitle className="text-2xl font-bold text-green-600">Environmental Impact</CardTitle>
-                <CardDescription className="text-green-700 mt-1">Measuring ecological footprint</CardDescription>
+                <CardDescription className="text-green-700 mt-1">Buldak Ramen has a significant environmental impact, with high carbon emissions and deforestation concerns.</CardDescription>
               </CardHeader>
               <CardContent className="px-6 pb-6 flex flex-col items-center">
                 <div className="w-full flex justify-center py-4">
-                  <EnvironmentalScoreGauge score={data ? data.environmentalScore : 80} maxScore={100} />
+                  <EnvironmentalScoreGauge score={60} maxScore={100} />
                 </div>
                 <div className="w-full mt-4">
                   <p className="text-gray-700 font-bold mb-3 flex items-center">
@@ -183,15 +177,15 @@ export default function ResultsPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Leaf className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.environmentalFactors[0] : 'Energy-efficient production'}</span>
+                      <span className="text-gray-700">High carbon emissions</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Factory className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.environmentalFactors[1] : 'Reduced carbon footprint'}</span>
+                      <span className="text-gray-700">Deforestation</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Droplet className="h-5 w-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{data ? data.environmentalFactors[2] : 'Water conservation'}</span>
+                      <span className="text-gray-700">Water pollution</span>
                     </li>
                   </ul>
                 </div>
@@ -203,7 +197,7 @@ export default function ResultsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="md:col-span-2 lg:col-span-1"
           >
             <Card className="border-0 shadow-xl rounded-2xl overflow-hidden h-full bg-gradient-to-br from-white to-blue-50">
@@ -213,54 +207,47 @@ export default function ResultsPage() {
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-300 rounded-full"></div>
                 </div>
                 <CardTitle className="text-2xl font-bold text-blue-600">Geographic Impact</CardTitle>
-                <CardDescription className="text-blue-700 mt-1">Regional environmental influence</CardDescription>
+                <CardDescription className="text-blue-700 mt-1">Buldak Ramen's impact varies by region, with notable effects in North America and Europe.</CardDescription>
               </CardHeader>
               <CardContent className="px-6 pb-6">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6 relative overflow-hidden shadow-inner">
-                  {/* World map visualization */}
                   <div className="absolute inset-0 bg-blue-50"></div>
 
-                  {/* North America */}
                   <div className="absolute top-1/4 left-1/4 w-24 h-16">
                     <div className="absolute inset-0 bg-green-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-green-800">{data ? data.geographicImpact.northAmerica : '85%'}</span>
+                      <span className="text-xs font-bold text-green-800">85%</span>
                     </div>
                   </div>
 
-                  {/* Europe */}
                   <div className="absolute top-1/4 left-1/2 w-16 h-12">
                     <div className="absolute inset-0 bg-yellow-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-yellow-800">{data ? data.geographicImpact.europe : '75%'}</span>
+                      <span className="text-xs font-bold text-yellow-800">75%</span>
                     </div>
                   </div>
 
-                  {/* Asia */}
                   <div className="absolute top-1/3 right-1/4 w-20 h-14">
                     <div className="absolute inset-0 bg-orange-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-orange-800">{data ? data.geographicImpact.asia : '70%'}</span>
+                      <span className="text-xs font-bold text-orange-800">70%</span>
                     </div>
                   </div>
 
-                  {/* South America */}
                   <div className="absolute bottom-1/4 left-1/3 w-16 h-12">
                     <div className="absolute inset-0 bg-blue-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-blue-800">{data ? data.geographicImpact.southAmerica : '80%'}</span>
+                      <span className="text-xs font-bold text-blue-800">80%</span>
                     </div>
                   </div>
 
-                  {/* Africa */}
                   <div className="absolute bottom-1/3 right-1/3 w-14 h-14">
                     <div className="absolute inset-0 bg-purple-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-purple-800">{data ? data.geographicImpact.africa : '65%'}</span>
+                      <span className="text-xs font-bold text-purple-800">65%</span>
                     </div>
                   </div>
 
-                  {/* Legend */}
                   <div className="absolute bottom-2 right-2 bg-white bg-opacity-80 p-1 rounded-md">
                     <div className="text-[10px] font-bold text-gray-600">Impact Score</div>
                   </div>
@@ -317,16 +304,16 @@ export default function ResultsPage() {
                       <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                         <Building className="h-4 w-4 text-blue-600" />
                       </div>
-                      <span className="font-bold text-gray-800">Environmental Protection Agency</span>
+                      <span className="font-bold text-gray-800">International Labour Organization</span>
                     </div>
                     <div className="text-sm text-gray-600">
-                      Official government data on environmental regulations and compliance records.
+                      Provides conventions and statistics on child labor, minimum age, and hazardous work.
                     </div>
                     <div className="mt-2 flex items-center">
                       <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: "90%" }}></div>
+                        <div className="h-full bg-blue-500 rounded-full" style={{ width: "85%" }}></div>
                       </div>
-                      <span className="ml-2 text-xs font-bold text-blue-600">90%</span>
+                      <span className="ml-2 text-xs font-bold text-blue-600">85%</span>
                     </div>
                   </div>
 
@@ -335,16 +322,16 @@ export default function ResultsPage() {
                       <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                         <Globe className="h-4 w-4 text-green-600" />
                       </div>
-                      <span className="font-bold text-gray-800">Global Reporting Initiative</span>
+                      <span className="font-bold text-gray-800">World Wildlife Fund</span>
                     </div>
                     <div className="text-sm text-gray-600">
-                      Standardized sustainability reporting framework and metrics.
+                      Offers data on biodiversity loss and GHG emissions related to food production.
                     </div>
                     <div className="mt-2 flex items-center">
                       <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-green-500 rounded-full" style={{ width: "85%" }}></div>
+                        <div className="h-full bg-green-500 rounded-full" style={{ width: "80%" }}></div>
                       </div>
-                      <span className="ml-2 text-xs font-bold text-green-600">85%</span>
+                      <span className="ml-2 text-xs font-bold text-green-600">80%</span>
                     </div>
                   </div>
 
@@ -353,16 +340,16 @@ export default function ResultsPage() {
                       <div className="h-8 w-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                         <FileText className="h-4 w-4 text-yellow-600" />
                       </div>
-                      <span className="font-bold text-gray-800">Corporate Sustainability Reports</span>
+                      <span className="font-bold text-gray-800">Fair Trade International</span>
                     </div>
                     <div className="text-sm text-gray-600">
-                      Self-reported company data on environmental and social initiatives.
+                      Provides standards on fair wages and ethical sourcing.
                     </div>
                     <div className="mt-2 flex items-center">
                       <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-yellow-500 rounded-full" style={{ width: "70%" }}></div>
+                        <div className="h-full bg-yellow-500 rounded-full" style={{ width: "75%" }}></div>
                       </div>
-                      <span className="ml-2 text-xs font-bold text-yellow-600">70%</span>
+                      <span className="ml-2 text-xs font-bold text-yellow-600">75%</span>
                     </div>
                   </div>
 
@@ -371,16 +358,16 @@ export default function ResultsPage() {
                       <div className="h-8 w-8 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                         <Database className="h-4 w-4 text-orange-600" />
                       </div>
-                      <span className="font-bold text-gray-800">Fair Labor Association</span>
+                      <span className="font-bold text-gray-800">Greenpeace</span>
                     </div>
                     <div className="text-sm text-gray-600">
-                      Independent monitoring of labor conditions and workplace standards.
+                      Researches food system impacts, including emissions and land use.
                     </div>
                     <div className="mt-2 flex items-center">
                       <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-orange-500 rounded-full" style={{ width: "80%" }}></div>
+                        <div className="h-full bg-orange-500 rounded-full" style={{ width: "70%" }}></div>
                       </div>
-                      <span className="ml-2 text-xs font-bold text-orange-600">80%</span>
+                      <span className="ml-2 text-xs font-bold text-orange-600">70%</span>
                     </div>
                   </div>
                 </div>
