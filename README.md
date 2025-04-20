@@ -20,7 +20,7 @@ EthicScope is a web application designed to help you make informed choices by re
 
 ## Demo
 
-Curious about EthicScope in action? [Watch our demo video](https://youtu.be/VojOdpquwYU).
+Curious about EthicScope in action? [Watch our demo video](https://youtu.be/nNdB_ETGdSk?si=9RuvpJUa-SExPVX5).
 
 ## Getting Started
 
