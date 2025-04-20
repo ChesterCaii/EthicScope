@@ -19,16 +19,45 @@ import EnvironmentalScoreGauge from "@/components/environmental-score-gauge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import Link from "next/link"
+import axios from 'axios'
+
+interface ApiResponse {
+  ethicalScore: number;
+  keyFactors: string[];
+  environmentalScore: number;
+  environmentalFactors: string[];
+  geographicImpact: {
+    northAmerica: string;
+    europe: string;
+    asia: string;
+    southAmerica: string;
+    africa: string;
+  };
+}
 
 export default function ResultsPage() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [data, setData] = useState<ApiResponse | null>(null)
 
   useEffect(() => {
     setIsLoaded(true)
+
+    // Fetch data from Cerebras API
+    axios.get<ApiResponse>('https://api.cerebras.com/endpoint', {
+      headers: {
+        'Authorization': `Bearer csk-kpnd5w6whcejrkd6fvjjx4xyw9ndtwpfnyk8twcp5t2fynt4`
+      }
+    })
+    .then(response => {
+      setData(response.data)
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error)
+    })
   }, [])
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col font-nunito overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-blue-300 flex flex-col font-nunito overflow-hidden">
       {/* Header with navigation */}
       <header className="bg-green-600 py-4 px-4 sticky top-0 z-50">
         <div className="container mx-auto">
@@ -63,7 +92,7 @@ export default function ResultsPage() {
         >
           <div>
             <div className="flex items-center mb-2">
-              <h2 className="text-3xl font-extrabold text-green-600 tracking-tight mr-3">Organic Cotton T-Shirt</h2>
+              <h2 className="text-3xl font-extrabold text-green-600 tracking-tight mr-3">Red Bull Energy Drink</h2>
               <div className="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded-full">
                 Scanned Today
               </div>
@@ -101,7 +130,7 @@ export default function ResultsPage() {
               </CardHeader>
               <CardContent className="px-6 pb-6 flex flex-col items-center">
                 <div className="w-full flex justify-center py-4">
-                  <EthicalScoreGauge score={78} maxScore={100} />
+                  <EthicalScoreGauge score={data ? data.ethicalScore : 65} maxScore={100} />
                 </div>
                 <div className="w-full mt-4">
                   <p className="text-gray-700 font-bold mb-3 flex items-center">
@@ -111,15 +140,15 @@ export default function ResultsPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Factory className="h-5 w-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Fair labor practices</span>
+                      <span className="text-gray-700">{data ? data.keyFactors[0] : 'Sustainable sourcing'}</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Heart className="h-5 w-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Strong community engagement</span>
+                      <span className="text-gray-700">{data ? data.keyFactors[1] : 'Community support initiatives'}</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Leaf className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Transparent supply chain</span>
+                      <span className="text-gray-700">{data ? data.keyFactors[2] : 'Recycling programs'}</span>
                     </li>
                   </ul>
                 </div>
@@ -144,7 +173,7 @@ export default function ResultsPage() {
               </CardHeader>
               <CardContent className="px-6 pb-6 flex flex-col items-center">
                 <div className="w-full flex justify-center py-4">
-                  <EnvironmentalScoreGauge score={92} maxScore={100} />
+                  <EnvironmentalScoreGauge score={data ? data.environmentalScore : 80} maxScore={100} />
                 </div>
                 <div className="w-full mt-4">
                   <p className="text-gray-700 font-bold mb-3 flex items-center">
@@ -154,15 +183,15 @@ export default function ResultsPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Leaf className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Organic materials</span>
+                      <span className="text-gray-700">{data ? data.environmentalFactors[0] : 'Energy-efficient production'}</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Factory className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Low-impact manufacturing</span>
+                      <span className="text-gray-700">{data ? data.environmentalFactors[1] : 'Reduced carbon footprint'}</span>
                     </li>
                     <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
                       <Droplet className="h-5 w-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Water conservation efforts</span>
+                      <span className="text-gray-700">{data ? data.environmentalFactors[2] : 'Water conservation'}</span>
                     </li>
                   </ul>
                 </div>
@@ -195,7 +224,7 @@ export default function ResultsPage() {
                   <div className="absolute top-1/4 left-1/4 w-24 h-16">
                     <div className="absolute inset-0 bg-green-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-green-800">92%</span>
+                      <span className="text-xs font-bold text-green-800">{data ? data.geographicImpact.northAmerica : '85%'}</span>
                     </div>
                   </div>
 
@@ -203,7 +232,7 @@ export default function ResultsPage() {
                   <div className="absolute top-1/4 left-1/2 w-16 h-12">
                     <div className="absolute inset-0 bg-yellow-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-yellow-800">78%</span>
+                      <span className="text-xs font-bold text-yellow-800">{data ? data.geographicImpact.europe : '75%'}</span>
                     </div>
                   </div>
 
@@ -211,7 +240,7 @@ export default function ResultsPage() {
                   <div className="absolute top-1/3 right-1/4 w-20 h-14">
                     <div className="absolute inset-0 bg-orange-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-orange-800">65%</span>
+                      <span className="text-xs font-bold text-orange-800">{data ? data.geographicImpact.asia : '70%'}</span>
                     </div>
                   </div>
 
@@ -219,7 +248,7 @@ export default function ResultsPage() {
                   <div className="absolute bottom-1/4 left-1/3 w-16 h-12">
                     <div className="absolute inset-0 bg-blue-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-blue-800">85%</span>
+                      <span className="text-xs font-bold text-blue-800">{data ? data.geographicImpact.southAmerica : '80%'}</span>
                     </div>
                   </div>
 
@@ -227,7 +256,7 @@ export default function ResultsPage() {
                   <div className="absolute bottom-1/3 right-1/3 w-14 h-14">
                     <div className="absolute inset-0 bg-purple-300 rounded-lg opacity-70"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-xs font-bold text-purple-800">70%</span>
+                      <span className="text-xs font-bold text-purple-800">{data ? data.geographicImpact.africa : '65%'}</span>
                     </div>
                   </div>
 
@@ -249,13 +278,13 @@ export default function ResultsPage() {
                         <span className="text-sm">North America</span>
                       </div>
                       <div className="bg-white p-2 rounded-lg shadow-sm flex items-center">
-                        <div className="w-3 h-3 bg-orange-400 rounded-full mr-2"></div>
-                        <span className="text-sm">Southeast Asia</span>
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+                        <span className="text-sm">Europe</span>
                       </div>
                     </div>
                   </div>
 
-                  <Button variant="outline" className="w-full text-blue-500 border-blue-500 hover:bg-blue-50">
+                  <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all shadow-md hover:shadow-lg hover:scale-105">
                     View Detailed Report
                   </Button>
                 </div>

@@ -71,7 +71,7 @@ export default function ScannerPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col font-nunito">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-blue-300 flex flex-col font-nunito">
       {/* Header */}
       <header className="bg-green-600 py-4 px-4">
         <div className="container mx-auto">
@@ -89,7 +89,10 @@ export default function ScannerPage() {
       </header>
 
       {/* Main content */}
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-8 relative">
+        {/* Animated clouds */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-clouds bg-repeat-x animate-clouds"></div>
+
         <motion.div
           className="max-w-md mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -98,7 +101,7 @@ export default function ScannerPage() {
         >
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-green-600 mb-4">Scan a Product</h2>
+              <h2 className="text-3xl font-bold text-green-600 mb-4">Scan a Product</h2>
               <p className="text-gray-600 mb-6">Use your camera to scan a barcode or search for a product by name.</p>
 
               <div className="space-y-4">
