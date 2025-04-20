@@ -80,7 +80,3 @@ We welcome contributions! Follow these steps to contribute:
 This project is licensed under the MIT License.
 
 ---
-
-## 📬 Contact
-
-For questions or feedback, please contact us at [email@example.com]. 
