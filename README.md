@@ -72,3 +72,4 @@ EthicScope is committed to transparency and empowering responsible consumer choi
 // Another improvement for docs
 // Quickdraw test
 // Add co-authored improvement for achievement
+// Further clarify code structure for contributors
